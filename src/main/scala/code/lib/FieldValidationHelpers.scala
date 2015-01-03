@@ -62,7 +62,7 @@ object FieldValidationHelpers extends Loggable {
   case class EmailField(id: String, element: String) extends Field {
     /* Assumes email address has been converted to lower case */
     private val emailRegexPattern = Pattern.compile("^[a-z0-9._%\\-+]+@(?:[a-z0-9\\-]+\\.)+[a-z]{2,4}$")
-    private val message = "*Invalid e-mail address"
+    private val message = "* Invalid e-mail address"
 
     override def isValid(input: String) = emailRegexPattern.matcher(input.toLowerCase).matches
 
@@ -81,7 +81,7 @@ object FieldValidationHelpers extends Loggable {
    */
   case class RequiredField(id: String, element: String) extends Field {
     private val minimumLength = 1
-    private val message = "*This field is required"
+    private val message = "* This field is required"
 
     override def isValid(input: String) = input match {
       case x if x.length >= minimumLength => true
