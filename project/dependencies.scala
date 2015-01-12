@@ -3,7 +3,7 @@ import sbt.Keys._
 
 object Dependencies {
   // Versions
-  val liftVersion = "2.6-RC2"
+  val liftVersion = "2.6"
   val servletVersion = "3.0.1"
   val logbackVersion = "1.1.2"
     
