@@ -53,15 +53,15 @@ class FormSnippet extends Loggable {
    * ajaxText fields store the input in a var and perform validation
    */
   def renderForm = "#name * input" #> SHtml.ajaxText(nameVar, false, (input: String) => {
-    nameVar = input
+    nameVar = input.trim
     nameField.jsValidation(input)
   }) &
     "#email * input" #> SHtml.ajaxText(emailVar, false, (input: String) => {
-      emailVar = input
+      emailVar = input.trim
       emailField.jsValidation(input)
     }) &
     "#message * textarea" #> SHtml.ajaxTextarea(messageVar, (input: String) => {
-      messageVar = input
+      messageVar = input.trim
       messageField.jsValidation(input)
     }) &
     "#submit" #> SHtml.ajaxOnSubmit(() => processForm())
